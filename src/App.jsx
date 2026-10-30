@@ -1,5 +1,6 @@
 ﻿import { useState } from 'react'
 import ExpenseForm from './components/ExpenseForm.jsx'
+import ExpenseList from './components/ExpenseList.jsx'
 import validateExpense from './utils/validateExpense.js'
 import './App.css'
 
@@ -41,13 +42,7 @@ function App() {
         onCategoryChange={setCategory}
         onSubmit={addExpense}
       />
-      <ul aria-label="Expenses">
-        {expenses.map((expense, index) => (
-          <li key={`${expense.title}-${index}`}>
-            {expense.title} — {expense.amount} — {expense.category}
-          </li>
-        ))}
-      </ul>
+      <ExpenseList expenses={expenses} />
     </main>
   )
 }
